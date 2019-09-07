@@ -1,0 +1,383 @@
+@import "bourbon"
+
+body, body *
+    margin: 0
+    padding: 0
+    font-family: "RobotoLight", sans-serif
+    box-sizing: border-box
+    transition: all 0.2s ease-in-out
+    
+.content
+    max-width: 768px
+    margin: 0 auto
+    text-align: center
+    position: relative
+    @media (max-width: 768px)
+        padding: 0 10px
+    
+
+.header
+    max-width: 100%    
+    border-bottom: 1px solid #d9d9d9
+    position: relative
+.bg
+    width: 100%
+    height: 100%
+    position: absolute
+    background-image: url('../img/bg.png')
+    background-position: top
+    background-repeat: no-repeat
+    background-size: 100%
+    max-height: 250px
+    @media (max-width: 768px)
+        background-size: cover
+    
+
+.main-menu  
+    margin: 0 auto
+    position: relative
+    max-width: 768px 
+    display: flex
+    justify-content: space-around
+    height: 80px
+    align-items: center
+    a        
+        text-align: center
+        color: #435993
+        text-decoration: none
+        transition: all 0.2s ease-in-out
+        &:hover
+            color: #1c1c1c
+    
+    @media (max-width: 768px)        
+        z-index: 5
+        position: fixed        
+        flex-flow: column
+        background: #fff
+        width: 260px
+        height: 100%
+        right: 0
+        justify-content: flex-start
+        padding: 60px 0
+        box-shadow: 0 5px 5px rgba(0,0,0,0.1)
+        right: -260px
+        a
+            margin: 10px 0
+            display: block
+        &--open
+            right: 0
+.mobile-menu
+    &__button
+        display: none
+        position: fixed
+        right: 20px
+        top: 14px
+        width: 48px
+        height: 48px
+        background-image: url('../img/menu.png')
+        background-repeat: no-repeat
+        background-size: contain
+        z-index: 4
+        @media (max-width: 768px)
+            display: block
+
+h1
+    font-size: 70px
+    font-weight: 400
+    line-height: 51px
+    color: #000
+    font-family: "RobotoThin", sans-serif
+    @media (max-width: 768px)
+        font-size: 42px
+h4
+    color: #1c1c1c
+    font-size: 30px
+    font-weight: 300
+    margin: 20px 0
+    @media (max-width: 768px)
+        font-size: 24px
+.icons
+    display: inline-block
+    width: 47px
+    height: 47px
+    margin: 20px 0 0
+    background-position: center
+    background-repeat: no-repeat
+    background-size: contain
+    &--info
+        background-image: url('../img/info.png')
+    &--exp
+        background-image: url('../img/exp.png')
+    &--js
+        background-image: url('../img/js.png')
+    &--about
+        background-image: url('../img/about.png')
+    &--arrow-down
+        background-image: url('../img/arrow-down.png')        
+.title
+    padding: 130px 0 75px
+
+.info     
+    margin-bottom: 50px   
+    &__form
+        display: flex
+        flex-flow: column
+        align-items: center
+        justify-content: center
+
+.exp
+    margin-bottom: 100px
+    &__form
+        display: flex
+        flex-flow: row wrap
+        justify-content: space-between
+        .checkbox
+            flex: 0 1 210px
+.js
+    margin-bottom: 50px
+
+.about
+    display: flex
+    flex-flow: column
+    align-items: center
+    justify-content: center
+    &__text
+        max-width: 520px
+        line-height: 24px
+        color: #1c1c1c
+        font-size: 16px
+
+// сладер
+.range-slider
+    position: relative    
+    &-cells
+        display: flex
+        align-items: flex-end
+        margin-bottom: 10px
+    &-cursor
+        position: absolute
+        background-image: url('../img/slider-point.png')
+        width: 23px
+        height: 26px
+        margin-top: 2px
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
+        cursor: pointer
+        top: 16px
+        left: -12px
+    &-line
+        position: relative
+        width: 100%
+        height: 45px
+        cursor: pointer
+        &--gray
+            width: 100%
+            position: absolute
+            top: 10px
+            left: 0
+            height: 4px
+            background: #e8e8e8
+        &--active
+            width: 100%
+            position: absolute
+            top: 10px
+            left: 0
+            height: 4px
+            background-image: linear-gradient(to right, #ccb1f1 0%, #435993 100%)
+    &__text
+        color: #2e211c
+        font-size: 13px
+        font-weight: 300
+        text-align: left
+    &__cell
+        position: relative
+        flex: 1
+        &:before
+            content: ""
+            position: absolute
+            left: 0
+            top: 110%
+            height: 15px
+            border-right: 1px dotted #c9c9c9
+        &:last-child
+            &:before
+                content: ""
+                left: auto
+                right: 0
+            .range-slider__text
+                text-align: right
+
+// элементы формы
+.input
+    position: relative
+    margin: 25px 0 0
+    height: 58px
+    border-radius: 5px
+    width: 518px
+    display: flex
+    justify-content: center 
+    @media (max-width: 530px)
+        width: 100%
+    &__placeholder
+        position: relative
+        color: #c8c8c8
+        font-size: 24px
+        font-weight: 400
+        width: 100%
+        text-align: center
+        transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out 
+        line-height: 24px
+        top: calc(50% - 12px)
+        font-family: "RobotoRegular", sans-serif
+        @media (max-width: 768px)
+            font-size: 16px
+    &__list
+        position: absolute
+        top: 100%
+        width: 100%
+        padding: 37px 0 32px
+        z-index: 5
+        height: 300px
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2)
+        background: #fff
+        overflow: auto
+        display: none
+        &-item
+            line-height: 36px
+            font-size: 20px
+            font-weight: 300
+            color: #435993
+            cursor: pointer
+    &--select
+        width: 319px
+        border: 1px solid #e5e5e5
+        @media (max-width: 340px)
+            width: 100%
+        input
+            display: none
+        .icons
+            width: 14px
+            height: 9px
+            z-index: 2
+            position: absolute
+            right: 25px
+            top: 5px
+        &--open
+            .input__list
+                display: block
+    input
+        position: absolute
+        width: 100%
+        left: 0
+        text-align: center
+        border: 0
+        border-radius: 5px
+        color: #1c1c1c
+        font-size: 20px
+        padding: 24px 0 11px
+        line-height: 21px
+        transition: all 0.2s ease-in-out
+        border: 1px solid #e5e5e5
+        font-family: "RobotoRegular", sans-serif
+        &:hover
+            border: 1px solid #435993      
+        &:focus
+            outline: 0
+            border: 1px solid #435993
+            &~.input__placeholder
+                position: absolute
+                top: 0
+                font-size: 14px
+            &~.input
+                border-color: #435993
+        &.active
+            display: block
+            &~.input__placeholder
+                position: absolute
+                top: 0
+                font-size: 14px
+   
+        
+        
+        
+textarea
+    resize: none
+    position: relative
+    width: 521px    
+    text-align: left 
+    border: 0
+    border-radius: 5px
+    color: #1c1c1c
+    font-size: 20px
+    padding: 24px 21px 11px
+    line-height: 21px
+    transition: all 0.2s ease-in-out
+    border: 1px solid #e5e5e5
+    font-family: "RobotoRegular", sans-serif
+    margin-top: 40px
+    height: 179px    
+    &:hover
+        border: 1px solid #435993      
+    &:focus
+        outline: 0
+        border: 1px solid #435993
+    &::placeholder
+        color: #c8c8c8
+        font-size: 24px
+    @media (max-width: 530px)
+        width: 100%
+        font-size: 16px
+        &::placeholder            
+            font-size: 16px
+
+.checkbox
+    font-size: 16px
+    font-weight: 300
+    color: #000
+    margin-bottom: 15px
+    text-align: left
+    display: flex
+    cursor: pointer
+    &__input
+        width: 20px
+        height: 20px
+        background: #ffffff
+        border: 1px solid #435993
+        margin-right: 12px
+        border-radius: 4px
+    &:hover
+        .checkbox__input
+            background-color: #e9efff
+    &--active
+        .checkbox__input
+            background-color: #435993
+            background-image: url('../img/check.png')
+            background-repeat: no-repeat
+            background-position: center
+        &:hover
+            .checkbox__input
+                background-color: #435993
+    input
+        display: none
+
+    
+        
+
+.button
+    padding: 19px 33px
+    background-color: #435993
+    font-size: 16px
+    font-weight: 300
+    color: #fff
+    border: 0
+    border-radius: 10px
+    line-height: 13px
+    margin: 70px 0
+    cursor: pointer
+    &:focus
+        outline: 0
+    
+
+
+    
